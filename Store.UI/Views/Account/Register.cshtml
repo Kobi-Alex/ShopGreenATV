@@ -1,0 +1,38 @@
+﻿@model RegisterViewModel
+
+<div class="mt-5">
+    <div class="text-center">
+        <h2>Register now at Green ATV </h2>
+    </div>
+
+    <div class="d-flex justify-content-center w-100">
+        <form method="post" asp-controller="Account" asp-action="Register" class="w-50">
+            <h4 class="text-center">Create a new account.</h4>
+            <hr class="bg-success" />
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label><br />
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year"></label><br />
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label><br />
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordConfirm"></label><br />
+                <input asp-for="PasswordConfirm" class="form-control" />
+                <span asp-validation-for="PasswordConfirm"></span>
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-success w-100">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

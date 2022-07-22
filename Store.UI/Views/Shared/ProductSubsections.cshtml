@@ -1,0 +1,13 @@
+﻿@model SubcategoryViewModel
+
+<p>
+    @{ string d = Model.CurrentCategoryName; } 
+    @foreach (string sub in Model.Subcategories)
+    {
+        <a class="text-warning" asp-controller="Product" asp-action="Subcategory" asp-route-sub ="@sub" asp-route-name="@d">
+            @sub
+        </a>
+        <hr/>
+    }
+</p>
+

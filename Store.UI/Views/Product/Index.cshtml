@@ -1,0 +1,63 @@
+﻿
+
+<div class="row">
+    <div class="col-3">
+        <p class="text-center mt-3">SUBCATEGORY</p>
+        <hr class="bg-warning" />
+        @{
+            <partial name="ProductSubsections" , model="@Model.SubcategoryViewModel" />
+        }
+    </div>
+    <div class="col-9">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                @{
+                    bool isActive = true;
+                    string active = "active";
+                    foreach (Promotion promotion in Model.Promotions)
+                    {
+                        <div class="carousel-item @active">
+                            <partial name="PromotionCarousel", model="promotion" />
+                        </div>
+
+                        if (isActive)
+                        {
+                            isActive = false;
+                            active = "";
+                        }
+                    }
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="text-center my-2">
+            <h2>@Model.SubcategoryViewModel.CurrentCategoryName</h2>
+        </div>
+
+        <div class="row ml-4">
+            @{
+                foreach (Product product in Model.Products)
+                {
+                    <partial name="ProductSummary", model="product"/>
+                }
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "ProductSummary";
+}
+
+<div class="tovar-content d-flex justify-content-around flex-wrap">
+    <div class="card m-2 shadow-sm" style="width: 15rem;">
+        <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId">
+            <img src="@Model.ImageThumbnailURL" style="height: 180px;" class="card-img-top p-2" alt="..." />
+        </a>
+
+        <div class="card-body d-flex flex-column">
+
+            <h6 class="card-title">@Model.Name</h6>
+            <p class="card-text">@Model.Description</p>
+
+            <div class="mt-auto w-100">
+                <hr/>
+                <a id="cartButton" asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-productId="@Model.ProductId" 
+                   class="btn btn-dark w-100 btn-sm">Add: @Model.Price.ToString("c")
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

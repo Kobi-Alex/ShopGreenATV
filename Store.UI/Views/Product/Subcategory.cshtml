@@ -1,0 +1,25 @@
+﻿
+
+<div class="row">
+    <div class="col-3">
+        <p class="text-center mt-5">SUBCATEGORY</p>
+        <hr class="bg-secondary" />
+        <partial name="ProductSubsections" , model="@Model.SubcategoryViewModel" />
+    </div>
+
+    <div class="col-9">
+         <div class="text-center my-2">
+             <h2>@Model.SubcategoryViewModel.CurrentCategoryName</h2>
+         </div>
+
+         <div class="row ml-4">
+             @{
+                 foreach (Product product in Model.Products)
+                 {
+                     <partial name="ProductSummary" , model="product" />
+                 }
+             }
+         </div>
+    </div>
+</div>
+

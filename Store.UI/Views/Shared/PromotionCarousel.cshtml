@@ -1,0 +1,10 @@
+
+@model Promotion
+
+    <img src="@Url.Content("~/assets/promotions/" + System.IO.Path.GetFileName(Model.UrlImage))" class="d-block w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+        <h5>@Model.Name</h5>
+        <p>@Model.Description</p>
+    </div>
+
+

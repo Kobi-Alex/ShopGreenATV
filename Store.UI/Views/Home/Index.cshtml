@@ -1,0 +1,32 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+
+    <img src="~/assets/main/Header.jpg" id="bg" />
+
+    <div class="mt-4">
+
+        <h2 class="text-warning pl-4">Wellcome</h2>
+        <p class="text-light pl-4">Because it’s not about the destination. It’s about the journey. Yours.</p>
+
+        <div class="d-flex mt-3">
+            @foreach (var item in Model.Categories)
+            {
+                <a role="button" class="btn btn-outline-dark m-1" href="@Url.Action("Index", "Product", new{categoryName = item.Name})">
+                    <div class=" bg-transparent py-4 mb-3 mx-2" style="max-width: 18rem;">
+                        <div class="card-header text-warning" style="font-size: 22px; font-weight:600">@item.Name</div>
+                        <hr class="bg-warning"/>
+                        <div class="card-body text-white mb-5">
+                            <p class="card-text">@item.Description</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+
